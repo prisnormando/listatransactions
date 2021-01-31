@@ -8,15 +8,15 @@ interface Request{
 }
 
 class CreateTransactionService {
-  private transactionsRepository: TransactionsRepository;
+  private transactionRepository: TransactionsRepository;
 
   constructor(transactionsRepository: TransactionsRepository) {
-    this.transactionsRepository = transactionsRepository;
+    this.transactionRepository = transactionsRepository;
   }
 
-  public execute(title, value, type: Request): Transaction {
-    const transaction = this.transactionsRepository.create({
-      title, value, type
+  public execute({title, value, type}: Request): Transaction {
+    const transaction = this.transactionRepository.create({
+      title, value, type,
     });
     return transaction;
   }
